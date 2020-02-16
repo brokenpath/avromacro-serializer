@@ -14,7 +14,7 @@ lazy val commonDependencies =
 
 def configuration(id: String)(project: Project): Project =
   project.settings(
-    moduleName := s"ThisBuild / name := avroserializer-$id",
+    moduleName := s"avroserializer-$id",
     crossScalaVersions := supportedVersions,
     sources in (Compile, doc) := List.empty,
     commonDependencies,

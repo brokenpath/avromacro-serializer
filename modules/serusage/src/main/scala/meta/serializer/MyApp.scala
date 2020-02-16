@@ -8,4 +8,5 @@ object Test extends App {
   println(this.hello)
   val f = Foo("abe")
   println(f)
+
 }
