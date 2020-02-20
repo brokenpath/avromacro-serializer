@@ -5,6 +5,7 @@ import scala.language.experimental.macros
 import scala.annotation.StaticAnnotation
 
 //(className, fields, parents, body)
+//get annotations like this https://www.47deg.com/blog/scala-macros-annotate-your-case-classes/
 object addFieldMacro{
    def impl(c: blackbox.Context)(annottees: c.Expr[Any]*): c.Expr[Any] = {
     import c.universe._
