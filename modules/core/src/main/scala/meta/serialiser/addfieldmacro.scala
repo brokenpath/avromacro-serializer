@@ -9,6 +9,10 @@ object addFieldMacro{
    def impl(c: blackbox.Context)(annottees: c.Expr[Any]*): c.Expr[Any] = {
     import c.universe._
     import Flag._
+    c.macroApplication.children.headOption match {
+       case Some(value) => value.foreach(child => println(child))
+       case None => print("denana")
+    }
      annottees map (_.tree) toList match {
          case (classDecl: ClassDef) :: Nil => 
             classDecl match {
@@ -22,6 +26,8 @@ object addFieldMacro{
 }
 
 
-class add_field_filepath extends StaticAnnotation {
-   def macroTransform(annottees: Any*): Any = macro addFieldMacro.impl 
+class add_field_filepath(path: String) extends StaticAnnotation {
+   def macroTransform(annottees: Any*): Any = 
+      macro addFieldMacro.impl
+   
 }

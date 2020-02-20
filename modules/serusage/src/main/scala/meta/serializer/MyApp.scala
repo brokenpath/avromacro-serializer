@@ -1,7 +1,7 @@
 package meta.serialiser
 
 
-@add_field_filepath() case class Foo()
+@add_field_filepath("a magic string") case class Foo()
 
 @hello
 object Test extends App {
